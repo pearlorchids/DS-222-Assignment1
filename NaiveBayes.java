@@ -42,25 +42,7 @@ public class NaiveBayes {
 			context.write(word, one);
 		}
 	}
-	
-	for(int i=0;i<labels.length;i++)
-	{
-		for(int j=0;j<itwords.length;j++)
-		{
-			//String label = labels[i].trim();
-			word.set("Y="+labels[i]+"^X=ANY");
-			context.write(word, one);
-		}
-	}
-	for(int i=0;i<labels.length;i++)
-	{
-			//String label = labels[i].trim();
-			word.set("Y=ANY");
-			context.write(word, one);
-			word.set("Y="+labels[i]);
-			context.write(word, one);
-		
-	}
+
 	
        
       }
@@ -197,7 +179,7 @@ private Text word = new Text();
        }
 
   public static void main(String[] args) throws Exception {
-	  /*
+	  
     Configuration conf = new Configuration();
     Job job = Job.getInstance(conf, "random");
     job.setJarByClass(NaiveBayes.class);
@@ -221,7 +203,7 @@ private Text word = new Text();
     FileInputFormat.addInputPath(job2, new Path(args[0]));
     FileOutputFormat.setOutputPath(job2, new Path(args[2]));
     job2.waitForCompletion(true);
-    */
+    
     Configuration conf3 = new Configuration();
     Job job3 = Job.getInstance(conf3, "random");
     job3.setJarByClass(NaiveBayes.class);
